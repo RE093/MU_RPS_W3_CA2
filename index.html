@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+<body>
+
+    <script>
+
+
+        var rps = ["r", "p", "s"]
+        var compScore = 0;
+        var userScore = 0;
+        var tieScore = 0;
+        var playAgain = confirm("Play Rock, Paper Scissors?")
+
+        while (playAgain === true) {
+            for (i = 0; i < 5; i++) {
+
+                var user = prompt("Enter \'r\', \'p\' or \'s\' to play! ");
+
+                var comp = rps[Math.floor(Math.random() * 3)];
+                console.log("Computer put " + comp);
+                console.log("You put " + user);
+
+                    if (user === comp) {
+                    console.log("it's a tie!")
+                    tieScore = (tieScore +1)
+                    } 
+
+                    else if (user === "r" && comp === "s" || user === "p" && comp === "r" || user === "r" && comp === "s") {
+                    console.log("you won this round!")
+                    userScore = (userScore +1)
+                    }
+
+                    else {
+                    console.log("You lost this round...")
+                    compScore = (compScore +1)
+                    }
+
+                    console.log("User Score = " + userScore)
+                    console.log("Computer Score = " + compScore)
+                    console.log("Tie\s = " + tieScore)
+            }
+
+            if (userScore > compScore) {
+                alert("You win Rock, Paper, Scissors!")
+            }
+            else if (userScore === compScore) {
+                alert("You tied!")
+            }
+            else {
+                alert("You lost this time...")
+            }
+            playAgain = confirm("Play again?")
+            userScore = 0;
+            compScore = 0;
+        }
+
+    </script>
+
+</body>
+</html>
